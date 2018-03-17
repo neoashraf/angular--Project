@@ -1,0 +1,16 @@
+<h2>Customers</h2>
+Search:<input type ="text" ng-model="searchCustomer"></input>    
+<table>
+    <tr>
+        <th ng-click="doSort('name')">Name </th>
+        <th ng-click="doSort('city')">City </th>
+        <th ng-click="doSort('orderTotal')">Order Total</th>
+        <th ng-click="doSort('joined')">Joined</th>
+    </tr>
+    <tr  ng-repeat="eachone in customers |filter:searchCustomer |orderBy:sortBy:reverse">
+        <td>{{eachone.name}}</td>
+        <td>{{eachone.city}}</td>
+        <td>{{eachone.orderTotal | currency:'BDT-'}}</td>
+        <td>{{eachone.joined | date}}</td>
+    </tr>
+</table>
