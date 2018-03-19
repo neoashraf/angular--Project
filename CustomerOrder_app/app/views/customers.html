@@ -5,12 +5,14 @@ Search:<input type ="text" ng-model="searchCustomer"></input>
         <th ng-click="doSort('name')">Name </th>
         <th ng-click="doSort('city')">City </th>
         <th ng-click="doSort('orderTotal')">Order Total</th>
-        <th ng-click="doSort('joined')">Joined</th>
+        <th ng-click="doSort('date')">Date</th>
+        <th>&nbsp;</th>
     </tr>
     <tr  ng-repeat="eachone in customers |filter:searchCustomer |orderBy:sortBy:reverse">
         <td>{{eachone.name}}</td>
         <td>{{eachone.city}}</td>
         <td>{{eachone.orderTotal | currency:'BDT-'}}</td>
-        <td>{{eachone.joined | date}}</td>
+        <td>{{eachone.date | date}}</td>
+        <td> <a href="#/customerOrders/{{eachone.id}}">View Orders</a> </td>
     </tr>
 </table>

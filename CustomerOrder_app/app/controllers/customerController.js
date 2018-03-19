@@ -1,46 +1,62 @@
 (function () {
     var customerController = function($scope){
+
         $scope.sortBy = 'name';
         $scope.reverse = false;
+        
         $scope.customers = [{
             id : 1,
-            joined: '2000-12-02',
+            date: '2000-12-02',
             name: 'Ashraf',
             city: 'Dhaka',
-            orderTotal : 1100.0,
+            orderTotal: 0,
             orders : {
                 id:5,
-                product:'k',
-                total:5
+                product:'Asp',
+                unitPrice: 11,
+                amount :100
             }
         }, {
             id : 2,
-            joined: '2000-12-02',
+            date: '2000-12-02',
             name: 'xAshraf',
             city: 'Dhaka',
-            orderTotal : 11123.0,
+            orderTotal: 0,
             orders : {
-                id:7,
-                product:'k',
-                total:5
+                id:5,
+                product:'kar',
+                unitPrice: 101,
+                amount :10
             }
         }, {
             id : 3,
-            joined: '2000-12-02',
+            date: '2000-12-02',
             name: 'pashraf',
-            city: 'Dhasdfaka',
-            orderTotal : 1111.0,
+            city: 'Dhaka',
+            orderTotal: 0,
             orders : {
-                id:9,
-                product:'k',
-                total:5
+                id:5,
+                product:'khaw',
+                unitPrice: 91,
+                amount :5
             }
         }];
+
         $scope.doSort = function (propName) {
             $scope.sortBy = propName;
             $scope.reverse = !$scope.reverse;
         };
+
+        function computeOrderTotal(){
+            for(var i=0; i < $scope.customers.length;i++){
+                $scope.customers[i].orderTotal = $scope.customers[i].orders.amount * $scope.customers[i].orders.unitPrice;
+            }
+        }
+        computeOrderTotal();
+
     }
+
     customerController.$inject = ['$scope'];
     angular.module('customerOrder_App').controller('customerController',customerController);
+
 }());
