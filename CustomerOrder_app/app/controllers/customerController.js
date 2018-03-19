@@ -31,7 +31,7 @@
         }, {
             id : 3,
             date: '2000-12-02',
-            name: 'pashraf',
+            name: 'yashraf',
             city: 'Dhaka',
             orderTotal: 0,
             orders : {
@@ -47,12 +47,12 @@
             $scope.reverse = !$scope.reverse;
         };
 
-        function computeOrderTotal(){
+        function computeOrderTotalCost(){
             for(var i=0; i < $scope.customers.length;i++){
                 $scope.customers[i].orderTotal = $scope.customers[i].orders.amount * $scope.customers[i].orders.unitPrice;
             }
         }
-        computeOrderTotal();
+        computeOrderTotalCost();
 
     }
 

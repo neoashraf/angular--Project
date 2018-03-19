@@ -1,11 +1,17 @@
-<h2>Orders of the selected Customer</h2>   
+<h2>Order Datails of {{selectedCustomer}}.</h2>   
 <table>
     <tr>
+        <th>Product Id</th>
         <th>Product Name</th>
+        <th>Amount</th>
         <th>Product Price</th>
+        <th>Total</th>
     </tr>
     <tr  ng-repeat="order in orders">
+        <td>{{order.id}}</td>
         <td>{{order.product}}</td>
-        <td>{{order.unitPrice}}</td>  
+        <td>{{order.amount}}</td>
+        <td>{{order.unitPrice | currency:'BDT-'}}</td>  
+        <td>{{order.amount * order.unitPrice | currency:'BDT-'}}</td>
     </tr>
 </table>
